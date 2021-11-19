@@ -7,10 +7,29 @@
 
 <body>
   <div class="container">
-    <h1>Currency Exchanger</h1>
-    <label for="USD">Enter amount in USD:</label>
-    <input id="USD" type="number">
-    <button class="bnt btn-dark">EXCHANGE</button>
+    <div>
+      <h1>Currency Exchanger</h1>
+      <h5>Exchange your USD to other currencies!</h5>
+    </div>
+    <form id="exchanger">
+      <div class="form-group">
+        <label for="USD">Enter amount in USD:</label>
+        <input id="USD" type="number">
+      </div>
+      <div class="form-group">
+        <label for="foreignCurrency">Select Currency</label>
+        <select name="foreignCurrency" id="foreignCurrency">
+          <option value="TWD">New Taiwan Dollar</option>
+          <option value="HKD">Hong Kong Dollar</option>
+          <option value="CNY">Chinese Renminbi</option>
+          <option value="CAD">Canadian Dollar</option>
+          <option value="GBP">Pound Sterling</option>
+        </select>
+      </div>
+      <button type="button" class="bnt btn-dark">EXCHANGE</button>
+    </form>
+    <div id="currencyOutput"></div>
+    <div id="error"></div>
   </div>
 </body>
 
