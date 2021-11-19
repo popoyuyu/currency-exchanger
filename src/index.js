@@ -4,10 +4,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import ExchangeRate from './exchange.js';
 
-function getElement(response, firstCurrency, secondCurrency, usdAmount) {
+function getElement(response, firstCurrency, secondCurrency) {
   if (response.result === "success") {
-    console.log(response);
-    $("#currencyOutput").text(`&dollar;${usdAmount} ${firstCurrency} = ${response.conversion_rate * secondCurrency}`);
+    console.log(response.conversion_rate);
+    $("#currencyOutput").text(`${firstCurrency} = ${response.conversion_rate * secondCurrency}`);
   } else {
     $("#error").text(`Sorry, there wasn an error: ${response}`);
   }
@@ -23,6 +23,7 @@ $(document).ready(function () {
     e.preventDefault();
     console.log("hello");
     let firstCurrency = parseInt($("#USD").val());
+    console.log(firstCurrency);
     let secondCurrency = $("#foreignCurrency option:selected").val();
     makeApiCall(firstCurrency, secondCurrency);
   });
