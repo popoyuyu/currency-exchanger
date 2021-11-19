@@ -14,7 +14,7 @@ function getElement(response, firstCurrency, secondCurrency, usdAmount) {
 }
 
 async function makeApiCall(firstCurrency, secondCurrency) {
-  const response = await ExchangeRate.getConversion(firstCurrency, secondCurrency);
+  const response = await ExchangeRate.getRate(firstCurrency, secondCurrency);
   getElement(response, firstCurrency, secondCurrency);
 }
 
@@ -22,16 +22,8 @@ $(document).ready(function () {
   $("#exchanger").on("click", function (e) {
     e.preventDefault();
     console.log("hello");
-    let firstCurrency = $("#USD").val();
+    let firstCurrency = parseInt($("#USD").val());
     let secondCurrency = $("#foreignCurrency option:selected").val();
     makeApiCall(firstCurrency, secondCurrency);
   });
 });
-
-// $("#exchanger").click(function (e) {
-//   e.preventDefault();
-//   console.log("hello");
-//   let firstCurrency = $("#USD").val();
-//   let secondCurrency = $("#foreignCurrency option:selected").val();
-//   makeApiCall(firstCurrency, secondCurrency);
-// });
