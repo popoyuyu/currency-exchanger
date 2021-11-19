@@ -13,13 +13,13 @@ function getElement(response, firstCurrency, secondCurrency, usdAmount) {
   }
 }
 
-async function makeApiCall(firstCurrency, secondCurrency) {
+async function makeApiCall(firstCurrency, secondCurrency, usdAmount) {
   const response = await ExchangeRate.getRate(firstCurrency, secondCurrency);
-  getElement(response, firstCurrency, secondCurrency);
+  getElement(response, firstCurrency, secondCurrency, usdAmount);
 }
 
 $(document).ready(function () {
-  $("#exchanger").on("click", function (e) {
+  $("#exchanger").click(function (e) {
     e.preventDefault();
     console.log("hello");
     let firstCurrency = parseInt($("#USD").val());
