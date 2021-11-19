@@ -5,6 +5,9 @@ import './css/styles.css';
 import ExchangeRate from './exchange.js';
 
 function getElement(response, firstCurrency, secondCurrency) {
+  if (response.result === "success") {
+
+  }
 
 }
 
