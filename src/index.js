@@ -17,10 +17,10 @@ async function makeApiCall(firstCurrency, secondCurrency) {
   const response = await ExchangeRate.getRate(firstCurrency, secondCurrency);
   getElement(response, firstCurrency, secondCurrency);
 }
+
 $(document).ready(function () {
   $("#exchanger").submit(function (e) {
     e.preventDefault();
-    console.log("hello");
     let firstCurrency = $("#USD").val();
     console.log(firstCurrency);
     let secondCurrency = $("#foreignCurrency option:selected").val();
